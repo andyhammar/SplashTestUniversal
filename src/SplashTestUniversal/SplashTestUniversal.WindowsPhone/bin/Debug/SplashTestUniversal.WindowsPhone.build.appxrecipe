@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>AHAM-YOGAPRO2</Machine>
+    <WindowsUser>Andreas</WindowsUser>
+    <TargetPlatformIdentifier>WindowsPhoneApp</TargetPlatformIdentifier>
+    <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
+    <PackageArchitecture>neutral</PackageArchitecture>
+    <PackageIdentityName>7f8a4b9a-d310-4ec0-8326-7e8e15665b1f</PackageIdentityName>
+    <IntermediateOutputPath>c:\dev\labs\SplashTestUniversal\SplashTestUniversal\SplashTestUniversal.WindowsPhone\obj\Debug\</IntermediateOutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="c:\dev\labs\SplashTestUniversal\SplashTestUniversal\SplashTestUniversal.WindowsPhone\bin\Debug\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="c:\dev\labs\SplashTestUniversal\SplashTestUniversal\SplashTestUniversal.WindowsPhone\bin\Debug\SplashTestUniversal.WindowsPhone.exe">
+      <PackagePath>SplashTestUniversal.WindowsPhone.exe</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\dev\labs\SplashTestUniversal\SplashTestUniversal\SplashTestUniversal.WindowsPhone\Assets\Logo.scale-240.png">
+      <PackagePath>Assets\Logo.scale-240.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\dev\labs\SplashTestUniversal\SplashTestUniversal\SplashTestUniversal.WindowsPhone\Assets\SmallLogo.scale-240.png">
+      <PackagePath>Assets\SmallLogo.scale-240.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\dev\labs\SplashTestUniversal\SplashTestUniversal\SplashTestUniversal.WindowsPhone\Assets\SplashScreen.scale-240.png">
+      <PackagePath>Assets\SplashScreen.scale-240.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\dev\labs\SplashTestUniversal\SplashTestUniversal\SplashTestUniversal.WindowsPhone\Assets\splash_jayway.scale-100.png">
+      <PackagePath>Assets\splash_jayway.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\dev\labs\SplashTestUniversal\SplashTestUniversal\SplashTestUniversal.WindowsPhone\Assets\Square71x71Logo.scale-240.png">
+      <PackagePath>Assets\Square71x71Logo.scale-240.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\dev\labs\SplashTestUniversal\SplashTestUniversal\SplashTestUniversal.WindowsPhone\Assets\StoreLogo.scale-240.png">
+      <PackagePath>Assets\StoreLogo.scale-240.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\dev\labs\SplashTestUniversal\SplashTestUniversal\SplashTestUniversal.WindowsPhone\Assets\WideLogo.scale-240.png">
+      <PackagePath>Assets\WideLogo.scale-240.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\dev\labs\SplashTestUniversal\SplashTestUniversal\SplashTestUniversal.WindowsPhone\Assets\WindowsSplash.scale-100.png">
+      <PackagePath>Assets\WindowsSplash.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\dev\labs\SplashTestUniversal\SplashTestUniversal\SplashTestUniversal.WindowsPhone\bin\Debug\App.xbf">
+      <PackagePath>App.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\dev\labs\SplashTestUniversal\SplashTestUniversal\SplashTestUniversal.WindowsPhone\bin\Debug\MainPage.xbf">
+      <PackagePath>MainPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\dev\labs\SplashTestUniversal\SplashTestUniversal\SplashTestUniversal.WindowsPhone\bin\Debug\SplashTestUniversal.WindowsPhone.xr.xml">
+      <PackagePath>SplashTestUniversal.WindowsPhone.xr.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="c:\dev\labs\SplashTestUniversal\SplashTestUniversal\SplashTestUniversal.WindowsPhone\bin\Debug\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

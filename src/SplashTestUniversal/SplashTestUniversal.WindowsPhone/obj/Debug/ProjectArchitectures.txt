@@ -1,0 +1,1 @@
+c:\dev\labs\SplashTestUniversal\SplashTestUniversal\SplashTestUniversal.WindowsPhone\SplashTestUniversal.WindowsPhone.csproj;neutral
