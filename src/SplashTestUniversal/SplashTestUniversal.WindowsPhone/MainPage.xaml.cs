@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
+using Windows.UI.Popups;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -35,64 +37,37 @@ namespace SplashTestUniversal
 
             this.NavigationCacheMode = NavigationCacheMode.Required;
 
-            //var statusBar = Windows.UI.ViewManagement.StatusBar.GetForCurrentView();
+            //force app to use full screen
             ApplicationView.GetForCurrentView().SetDesiredBoundsMode(ApplicationViewBoundsMode.UseCoreWindow);
 
-            _image.ImageOpened += _image_ImageOpened;
-            _image.ImageFailed += _image_ImageFailed;
-            Debug.WriteLine("before ctor wait");
-            _imageLock.Wait();
-            Debug.WriteLine("after ctor wait");
+            //Andreas Hammar 2014-10-06 15:09: code to wait while loading the image
+            //var image = new BitmapImage();
+            //var fileTask = StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/splash_jayway.png"));
+            //var file = fileTask.GetAwaiter().GetResult();
+            //var stream = file.OpenStreamForReadAsync().Result;
+            //image.SetSource(stream.AsRandomAccessStream());
+            //_image.Source = image;
 
-
-            var image = new BitmapImage();
-            var fileTask = StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/splash_jayway.png"));
-            var file = fileTask.GetAwaiter().GetResult();
-            var stream = file.OpenStreamForReadAsync().Result;
-            image.SetSource(stream.AsRandomAccessStream());
-            _image.Source = image;
-
-            this.Loaded += MainPage_Loaded;
+            //this.Loaded += MainPage_Loaded;
+            var timer = new DispatcherTimer() {Interval = TimeSpan.FromSeconds(5)};
+            timer.Tick += TimerOnTick;
+            timer.Start();
         }
+
+        private async void TimerOnTick(object sender, object o)
+        {
+            ((DispatcherTimer)sender).Stop();
+
+            var file = await ApplicationData.Current.LocalCacheFolder.GetFileAsync("file.txt");
+
+            new MessageDialog(await FileIO.ReadTextAsync(file)).ShowAsync();
+
+        }
+
 
         void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
             Debug.WriteLine("loaded");
-        }
-
-        
-        void _image_ImageFailed(object sender, ExceptionRoutedEventArgs e)
-        {
-            Debug.WriteLine("image failed");
-
-        }
-
-        void _image_ImageOpened(object sender, RoutedEventArgs e)
-        {
-            Debug.WriteLine("releasing");
-            _imageLock.Release();
-        }
-        
-        SemaphoreSlim _imageLock = new SemaphoreSlim(1);
-        /// <summary>
-        /// Invoked when this page is about to be displayed in a Frame.
-        /// </summary>
-        /// <param name="e">Event data that describes how this page was reached.
-        /// This parameter is typically used to configure the page.</param>
-        protected override async void OnNavigatedTo(NavigationEventArgs e)
-        {
-            Debug.WriteLine("onNaviTo");
-            await Task.Delay(5000);
-            Debug.WriteLine("navi waiting");
-            await _imageLock.WaitAsync();
-            Debug.WriteLine("navi after wait");
-            // TODO: Prepare page for display here.
-
-            // TODO: If your application contains multiple pages, ensure that you are
-            // handling the hardware Back button by registering for the
-            // Windows.Phone.UI.Input.HardwareButtons.BackPressed event.
-            // If you are using the NavigationHelper provided by some templates,
-            // this event is handled for you.
         }
     }
 }

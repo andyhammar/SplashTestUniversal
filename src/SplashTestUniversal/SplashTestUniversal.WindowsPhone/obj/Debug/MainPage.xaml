@@ -6,17 +6,18 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="White">
 
     <Grid>
         <!--<Image
             Source="pack://application:,,,/Assets/WindowsSplash.scale-240.Copy.png" 
             />-->
+        <WebView Source="http://www.jayway.com"/>
         <Image
-            x:Name="_image"
+            x:Name="_image" Source="Assets/splash_jayway.png" 
             />
         <ProgressRing 
-            IsActive="true" Foreground="LightBlue"
+            IsActive="true" Foreground="White"
             Background="{x:Null}"
             HorizontalAlignment="Center" 
             VerticalAlignment="Center"

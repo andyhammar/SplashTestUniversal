@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -45,7 +47,7 @@ namespace SplashTestUniversal
         /// search results, and so forth.
         /// </summary>
         /// <param name="e">Details about the launch request and process.</param>
-        protected override void OnLaunched(LaunchActivatedEventArgs e)
+        protected override async void OnLaunched(LaunchActivatedEventArgs e)
         {
 #if DEBUG
             if (System.Diagnostics.Debugger.IsAttached)
@@ -53,6 +55,19 @@ namespace SplashTestUniversal
                 this.DebugSettings.EnableFrameRateCounter = true;
             }
 #endif
+
+            Task.Run(async () =>
+            {
+                while (true)
+                {
+                    var file = await ApplicationData.Current.LocalCacheFolder.CreateFileAsync("file.txt",
+                        CreationCollisionOption.OpenIfExists);
+                    await FileIO.AppendLinesAsync(file, new []{DateTime.Now.ToString()});
+                    await Task.Delay(5);
+
+                }
+            });
+            await Task.Delay(1000);
 
             Frame rootFrame = Window.Current.Content as Frame;
 
